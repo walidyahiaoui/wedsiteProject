@@ -1,10 +1,11 @@
 package persistence;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  * Entity implementation class for Entity: Owner
@@ -18,6 +19,8 @@ public class Owner extends User implements Serializable {
 	private int age;
 	private String address;
 	private static final long serialVersionUID = 1L;
+    private List<Guest> guests;
+    private Admin admin;
 
 	public Owner() {
 		super();
@@ -43,11 +46,28 @@ public class Owner extends User implements Serializable {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	@OneToMany(mappedBy = "owner")
+	public List<Guest> getGuests() {
+		return guests;
+	}
+	public void setGuests(List<Guest> guests) {
+		this.guests = guests;
+	}
 	public Owner(String sexe, int age, String address) {
 		super();
 		this.sexe = sexe;
 		this.age = age;
 		this.address = address;
 	}
+	
+	@ManyToOne 
+	public Admin getAdmin() {
+		return admin;
+	}
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
+	
    
 }

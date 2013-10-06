@@ -5,56 +5,51 @@ import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
-import persistence.User;
-
+import persistence.Guest;
 
 /**
- * Session Bean implementation class UserServices
+ * Session Bean implementation class GuestServices
  */
 @Stateless
 @LocalBean
-public class UserServices implements UserServicesRemote, UserServicesLocal {
+public class GuestServices implements GuestServicesRemote, GuestServicesLocal {
 
-	@PersistenceContext
 	private EntityManager entityManager;
-
-    /**
-     * Default constructor. 
-     */
-    public UserServices() {
+    public GuestServices() {
         // TODO Auto-generated constructor stub
     }
 
 	@Override
-	public void addUser(User user) {
-		entityManager.persist(user);
-
+	public void addGuest(Guest guest) {
+		entityManager.persist(guest);
+		
 	}
 
 	@Override
-	public User findUserById(int iduser) {
+	public Guest findGuestById(int idGuest) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deleteUserById(int idUser) {
+	public void deleteGuestById(int idGuest) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void updateUser(User user) {
+	public void updateGuest(Guest guest) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public List<User> findAllUsers() {
+	public List<Guest> findAllGuests() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 }

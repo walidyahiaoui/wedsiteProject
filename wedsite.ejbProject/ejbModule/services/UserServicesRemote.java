@@ -10,7 +10,7 @@ import persistence.User;
 
 @Remote
 public interface UserServicesRemote {
-	
+
 	public void addUser(User user);
 
 	public User findUserById(int idUser);
@@ -18,7 +18,7 @@ public interface UserServicesRemote {
 	public void deleteUserById(int idUser);
 
 	public void updateUser(User user);
-	
+
 	public List<User> findAllUsers();
 
 }

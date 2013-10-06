@@ -4,14 +4,10 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import persistence.User;
+import persistence.Admin;
 import services.UserServicesRemote;
 
-public class TestAddUser {
-
-	public TestAddUser() {
-		// TODO Auto-generated constructor stub
-	}
+public class TestAddAdmin {
 
 	/**
 	 * @param args
@@ -20,20 +16,23 @@ public class TestAddUser {
 		try {
 			Context context = new InitialContext();
 			UserServicesRemote proxy = (UserServicesRemote) context
-					.lookup("ejb:app/wedsiteProject/OwnerServices!services.OwnerServicesRemote");
+					.lookup("ejb:/wedsite.ejbProject/UserServices!services.UserServicesRemote");
 
-			User user=new User();
-			user.setIdUser(1);
-			user.setFirstnameUser("user1");
-			user.setLastnameUser("user");
-			user.setMailUser("mail@user");
-		
+			Admin admin=new Admin();
+			admin.setIdUser(4);
+			admin.setFirstnameUser("admin");
+			admin.setLastnameUser("admin");
+			admin.setMailUser("admin@admin");
+			admin.setImmatricule("12-MT-2013");
+			admin.setPasswordUser("admin");
 			
-			proxy.addUser(user);
+			
+			
+			proxy.addUser(admin);
 			
 			
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 

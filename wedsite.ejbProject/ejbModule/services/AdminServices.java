@@ -5,54 +5,47 @@ import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
-import persistence.User;
-
+import persistence.Admin;
 
 /**
- * Session Bean implementation class UserServices
+ * Session Bean implementation class AdminServices
  */
 @Stateless
 @LocalBean
-public class UserServices implements UserServicesRemote, UserServicesLocal {
+public class AdminServices implements AdminServicesRemote, AdminServicesLocal {
 
-	@PersistenceContext
 	private EntityManager entityManager;
-
-    /**
-     * Default constructor. 
-     */
-    public UserServices() {
+    public AdminServices() {
         // TODO Auto-generated constructor stub
     }
 
 	@Override
-	public void addUser(User user) {
-		entityManager.persist(user);
-
+	public void addAdmin(Admin admin) {
+		entityManager.persist(admin);
+		
 	}
 
 	@Override
-	public User findUserById(int iduser) {
+	public Admin findAdminById(int idAdmin) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deleteUserById(int idUser) {
+	public void deleteAdminById(int idAdmin) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void updateUser(User user) {
+	public void updateAdmin(Admin admin) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public List<User> findAllUsers() {
+	public List<Admin> findAllAdmins() {
 		// TODO Auto-generated method stub
 		return null;
 	}
