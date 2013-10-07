@@ -5,6 +5,9 @@
 		<jta-data-source>java:/mysql</jta-data-source>
 
 	<class>persistence.User</class>
+	<class>persistence.Admin</class>
+	<class>persistence.Guest</class>
+	<class>persistence.Owner</class>
 		
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />

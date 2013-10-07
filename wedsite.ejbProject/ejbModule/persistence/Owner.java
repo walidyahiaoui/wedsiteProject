@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -20,7 +19,7 @@ public class Owner extends User implements Serializable {
 	private String address;
 	private static final long serialVersionUID = 1L;
     private List<Guest> guests;
-    private Admin admin;
+ 
 
 	public Owner() {
 		super();
@@ -61,13 +60,6 @@ public class Owner extends User implements Serializable {
 		this.address = address;
 	}
 	
-	@ManyToOne 
-	public Admin getAdmin() {
-		return admin;
-	}
-	public void setAdmin(Admin admin) {
-		this.admin = admin;
-	}
-	
+
    
 }
