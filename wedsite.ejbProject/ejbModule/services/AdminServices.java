@@ -1,9 +1,11 @@
+
 package services;
 
 import java.util.List;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.management.Query;
 import javax.persistence.EntityManager;
 
 import persistence.Admin;
@@ -28,26 +30,25 @@ public class AdminServices implements AdminServicesRemote, AdminServicesLocal {
 
 	@Override
 	public Admin findAdminById(int idAdmin) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		return entityManager.find(Admin.class, idAdmin);	
+		}
 
 	@Override
 	public void deleteAdminById(int idAdmin) {
-		// TODO Auto-generated method stub
-		
+		entityManager.remove(findAdminById(idAdmin));		
 	}
 
 	@Override
 	public void updateAdmin(Admin admin) {
-		// TODO Auto-generated method stub
-		
+		entityManager.merge(admin);		
 	}
 
 	@Override
 	public List<Admin> findAllAdmins() {
-		// TODO Auto-generated method stub
-		return null;
+		String jpql = "select a from Admin a";
+		Query query = (Query) entityManager.createQuery(jpql);
+		return  ((javax.persistence.Query) query).getResultList();
 	}
 
 }
+

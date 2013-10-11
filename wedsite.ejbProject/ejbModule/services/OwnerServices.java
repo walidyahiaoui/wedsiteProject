@@ -30,26 +30,26 @@ public class OwnerServices extends User implements OwnerServicesRemote, OwnerSer
 
 	@Override
 	public Owner findOwnerById(int idOwner) {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.find(Owner.class, idOwner);
 	}
 
 	@Override
 	public void deleteOwnerById(int idOwner) {
-		// TODO Auto-generated method stub
+	
 		
+
+		entityManager.remove(findOwnerById(idOwner));
 	}
 
 	@Override
 	public void updateOwner(Owner owner) {
-		// TODO Auto-generated method stub
-		
+		entityManager.merge(owner);		
 	}
 
 	@Override
 	public List<Owner> findAllOwners() {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.createQuery("select o from Owner o ")
+				.getResultList();
 	}
 
 }

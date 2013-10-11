@@ -10,7 +10,7 @@ public class TestAddAdmin {
 	 */
 	public static void main(String[] args) {
 		Admin admin=new Admin();
-		admin.setIdUser(23);
+		admin.setIdUser(250);
 		admin.setFirstnameUser("admin");
 		admin.setLastnameUser("admin");
 		admin.setMailUser("admin@admin");
